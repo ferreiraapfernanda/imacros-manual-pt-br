@@ -169,7 +169,7 @@ No macro:
  	main3=3
 
 No macro:
-	``TAG ... CONTENT={{name!LOOP}}´´
+	TAG ... CONTENT={{name!LOOP}}
 
 ###Input pelo Banco de dados
 Só funciona com Scripting Edition
@@ -178,7 +178,13 @@ Pode ler de qualquer banco de dados Windows
 
 ##Extrair dados dos sites
 ###Extrair elementos únicos
-Possui o Ex
+Possui o botão Extract Data
+O comando EXTRACT é controlado por três parâmetros diferentes: a âncora, a posição e o tipo de extração.
+O mais importante é a âncora. Você deve usar * no final da âncora de extração.
+Se o código inserido na âncora aparecer mais de uma vez na página, o parâmetro de posição determina qual ocorrência será extraída.
+O tipo de extração determina se o resultado é um texto, HTML, URL, um titulo ou um texto alternativo de uma imagem.
+
+Todos os resultados extraidos podem ser acessados no macro pela variável interna <code>!EXTRACT</code>
 
 
 
