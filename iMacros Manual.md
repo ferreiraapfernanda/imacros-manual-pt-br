@@ -21,22 +21,22 @@ Todos os espaços em branco do valores, por exemplo, co parâmetro CONTENT, deve
 As senhas são gravada na criptografia AES, mas não a senha master. Ela só é mantida temporariamente na memória enquanto roda-se os macros. VocÊ precisa redigita-la, a cada execução.
 
 ##Salvamento de páginas web
-Comando SAVEAS. Formatos:
-- CPL arquivos e imagens salvas separadamente numa pasta
-- MHT página e imagens salvas num só arquivo
-- TXT só o texto é salvo, sem tags HTML
-- EXTRACT o valor da variável !EXTRACT é salvo num CSV
-- BMP uma captura de tela do site é salva. ex: SAVEAS TYPE=BMP FOLDER=* FILE=M.bmp
+Comando <code>SAVEAS</code>. Formatos:
+- <b>CPL</b> arquivos e imagens salvas separadamente numa pasta
+- <b>MHT</b> página e imagens salvas num só arquivo
+- <b>TXT</b> só o texto é salvo, sem tags HTML
+- <b>EXTRACT</b> o valor da variável !EXTRACT é salvo num CSV
+- <b>BMP</b> uma captura de tela do site é salva. ex: SAVEAS TYPE=BMP FOLDER=* FILE=M.bmp
 
-Downloads de arquivos são controlados pelo comando ONDOWNLOAD. Deve aparecer antes do comando que inicia o download.
-Se necessário, aumentar o valor de timeout com SET !TIMEOUT. Ou, fazer um WAIT SECONDS=
+Downloads de arquivos são controlados pelo comando <code>ONDOWNLOAD</code>. Deve aparecer antes do comando que inicia o download.
+Se necessário, aumentar o valor de timeout com <code>SET !TIMEOUT</code>. Ou, fazer um <code>WAIT SECONDS=</code>
 
-Downloads de itens/imagens, através do botão SAVE ITEM na aba de Gravação/Recording
-TAG POS=1 TYPE=IMG ATTR=HREF..... CONTENT=EVENT:SAVEITEM
+Downloads de itens/imagens, através do botão <b>SAVE ITEM</b> na aba de Gravação/Recording
+<code>TAG POS=1 TYPE=IMG ATTR=HREF..... CONTENT=EVENT:SAVEITEM</code>
 
-Para salvar imagens, é possível adicionar o parâmetro CONTENT-EVENT: #SAVEPICTURESAS após a TAG que clica na imagem
+Para salvar imagens, é possível adicionar o parâmetro <code>CONTENT-EVENT: #SAVEPICTURESAS</code> após a TAG que clica na imagem
 
-Para salvar outros tipos de conteúdo, como .WVM, .AVI, .MP3 ou .PDF, clica-se no link que apresente o item (isso gerará um comando TAG) e adicione o parâmetro CONTENT-EVENT:SAVETARGETAS
+Para salvar outros tipos de conteúdo, como .WVM, .AVI, .MP3 ou .PDF, clica-se no link que apresente o item (isso gerará um comando TAG) e adicione o parâmetro <code>CONTENT-EVENT:SAVETARGETAS</code>
 (Para especificar onde salvar, usar o comando ONDOWNLOAD)
 
 Para algumas outras imagens, é uma melhor estratégia salvar através do parâmetro <code>SAVEPICTUREAS</code>, pois ele simula o salvamento pelo comando do I.E. (e não através do HTML, como o SAVEITEM)
@@ -54,13 +54,15 @@ Exibem HTML no seu conteúdo (e não JS). Eles são controlados pelo comando <co
 Durante a execução do macro, <code>ONWEBPAGEDIALOG KEYS={WAIT<sp>2}{CLOSE}</code> é ativado por padrão para fechar diálogos indesejável
 
 ###Segurança
-<code>ONSECURITYDIALOG.</code> Por padrão as configurações são BUTTON=YES e CONTINUE=YES, mesmo sem a especificação do comando.
+<code>ONSECURITYDIALOG.</code> 
+Por padrão as configurações são BUTTON=YES e CONTINUE=YES, mesmo sem a especificação do comando.
 
 ###Certificados
 <code>ONCERTIFICATEDDIALOG</code>
 
 ###Page Errors
-<code>ONERRORDIALOG. BUTTON=YES e CONTINUE=YES </code>por padrão
+<code>ONERRORDIALOG. </code> 
+BUTTON=YES e CONTINUE=YES por padrão
 
 
 ## PRINT
@@ -70,17 +72,17 @@ P=  ou P=* seleciona a última impressora usada
 Se a página utiliza frames e você quer imprimir somente um frame específico, você pode selecionar com WINCLICK antes.
 
 <code>...
-SIZE X=644 Y=604
-FRAME=6
-WINCLICK X=462 Y=206 CONTENT=
-ONPRINT P=*
+SIZE X=644 Y=604<br>
+FRAME=6<br>
+WINCLICK X=462 Y=206 CONTENT=<br>
+ONPRINT P=*<br>
 PRINT</code>
 
 ##Abas do Navegador
-<code>URL GOTO=
-TAB OPEN
-TAB T=2
-TAB CLOSE
+<code>URL GOTO=<br>
+TAB OPEN<br>
+TAB T=2<br>
+TAB CLOSE<br>
 TAB T=1</code>
 
 ##Frames
