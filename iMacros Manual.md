@@ -1,12 +1,12 @@
-#iMacros Manual
+# iMacros Manual
 (http://pt.slideshare.net/gonzalezjjose/i-macros-manual)
 
-##Opções de gravação:
+## Opções de gravação:
 - rápida (default) ou
 - velocidade original (com WAIT)
 
-##!REPLAYSPEED
-- FATS
+## !REPLAYSPEED
+- FAST
 - MEDIUM (espera 0.25s entre cada comando)
 - SLOW (1 segundo entre cada comando)
 
@@ -14,13 +14,13 @@ Quadro azul durante a execução, indicando onde foi selecionado: SET !POINTER Y
 
 Todos os espaços em branco do valores, por exemplo, co parâmetro CONTENT, devem ser substituidos por um <SP>. Já a quebra de linha, por <BR>
 
-##iMacros Password Manager: armazena nomes de usuário e senhas nos macros.
+## iMacros Password Manager: armazena nomes de usuário e senhas nos macros.
 1. Sem criptografia
 2. Senhas de sites criptografadas
 3. Senhas de sistes criptografadas e pergunta pela senha Master
 As senhas são gravada na criptografia AES, mas não a senha master. Ela só é mantida temporariamente na memória enquanto roda-se os macros. VocÊ precisa redigita-la, a cada execução.
 
-##Salvamento de páginas web
+## Salvamento de páginas web
 Comando <code>SAVEAS</code>. Formatos:
 - <b>CPL</b> arquivos e imagens salvas separadamente numa pasta
 - <b>MHT</b> página e imagens salvas num só arquivo
@@ -42,25 +42,25 @@ Para salvar outros tipos de conteúdo, como .WVM, .AVI, .MP3 ou .PDF, clica-se n
 Para algumas outras imagens, é uma melhor estratégia salvar através do parâmetro <code>SAVEPICTUREAS</code>, pois ele simula o salvamento pelo comando do I.E. (e não através do HTML, como o SAVEITEM)
 
 ## GERENCIADOR DE DIÁLOGOS
-###Login
+### Login
 <code>ONLOGIN</code>, a senha é armazenada no método selecionado na aba de Segurança no diálogo de Opções
 
-###Javascript
+### Javascript
 <code>ONDIALOG</code> cuida de todas as caixas de diálogo Javascript. Você pode extrair o texto de um diálogo adicionando <code>SET !EXTRACTDIALOG YES</code>.
 Algumas páginas abrem uma nova página após a resposta de um diálogo,  caso queira esperar por esse download, adicione o comando WAIT SECONDS= depois da TAG que inicia a caixa de diálogo
 
-###Web Page Dialogs
+### Web Page Dialogs
 Exibem HTML no seu conteúdo (e não JS). Eles são controlados pelo comando <code>ONWEBPAGEDIALOG</code>. Como os diálogos podem conter botões ou caixas, você pdoe automatizar utilizando uma lista específica de comandos do teclado para elas. Por exemplo <code>KEYS=Hello{ENTER}{CLOSE}</code>
 Durante a execução do macro, <code>ONWEBPAGEDIALOG KEYS={WAIT<sp>2}{CLOSE}</code> é ativado por padrão para fechar diálogos indesejável
 
-###Segurança
+### Segurança
 <code>ONSECURITYDIALOG.</code> 
 Por padrão as configurações são BUTTON=YES e CONTINUE=YES, mesmo sem a especificação do comando.
 
-###Certificados
+### Certificados
 <code>ONCERTIFICATEDDIALOG</code>
 
-###Page Errors
+### Page Errors
 <code>ONERRORDIALOG. </code> 
 BUTTON=YES e CONTINUE=YES por padrão
 
@@ -78,25 +78,25 @@ WINCLICK X=462 Y=206 CONTENT=<br>
 ONPRINT P=*<br>
 PRINT</code>
 
-##Abas do Navegador
+## Abas do Navegador
 <code>URL GOTO=<br>
 TAB OPEN<br>
 TAB T=2<br>
 TAB CLOSE<br>
 TAB T=1</code>
 
-##Frames
+## Frames
 Para que seja possível a utilização do iMacros em uma página que se utiliza de frames, é preciso ter certeza de que a TAG ou EXTRACT estejam direcionadas no frame correto.
 	Para o EXTRACT, clique antes em um elemento que também esteja nesse frame para posicionar o iMacros corretamente.
 
 	Para uma TAG, pdoe ser que a página nao esteja complemente carregada, para isso, adicione um WAIT SECONDS= que espere o download completo da página
 (F=n onde n é a posição do frame na "árvore de objetos" da página)
 
-##Melhorando os comandos TAG
-###Wildcards
+## Melhorando os comandos TAG
+### Wildcards
 Algumas páginas são criadas dinamicamente e os links contem números únicos - sessões ID. Para isso, é preciso substituir as partes que mudam pelo símbolo  de asterisco <code>*</code>
 
-##Variáveis
+## Variáveis
 A variável <code>!VAR1</code> é acessada através da declaração <code>{{!VAR1}}</code>
 Quase qualquer valor pode ser atribuido a uma variável, mas alguns símbilos precisam ser substituidos porque implicam um outro comportamento no iMacros.
 Todos os espaços em branco precisam ser substituidos por <sp> e todas as quebras de linhas substituidas por <br>
@@ -135,7 +135,7 @@ Proxy não utiliza em URLs que incluam a palavra "iopus"
 
 Ao invés do IP, pdoe usar uma URL pro proxy também
 
-##Enviando múltiplos Datasets para Web Sites
+## Enviando múltiplos Datasets para Web Sites
 A fonte de dados (datasource) pdoe tanto ser um arquivo de texto com uma lista de variáveis e seus valores, como:
 <code>key=value</code>
 Ou pode ser um arquivo no formato CSV, com uma virgula separando os valores.
@@ -144,14 +144,14 @@ Ou pode ser um arquivo no formato CSV, com uma virgula separando os valores.
 Uma sugestão seria utilizar uma <b>lista de variáveis</b> se você tiver várias variáveis mas somente um ou poucos valores para cada variável. (Por exemplo, um endereço, com rua, número e cep)
 O <b>formato CSV</b> é recomendado para a utilização de poucas variáveis com vários valores diferentes(Por exemplo, informações de uma longa lista de CDs)
 
-###Input por um arquivo CSV
+### Input por um arquivo CSV
 <code>SET !DATASOURCE OnlineAuction.csv
 SET !DATASOURCE_COLUMNS 3
 SET !DATASOURCE_LINE{{!LOOP}}
 
 TAG ... CONTENT={{!COL1}} </code>
 
-###Input por uma arquivo com uma lista de variáveis
+### Input por uma arquivo com uma lista de variáveis
 A primeira linha do arquivo deve ser
 <code>[iOpus]</code>
 
@@ -180,13 +180,13 @@ Para arquivos com valores diferentes de uma mesma chave, é reciso adicionar um 
 No macro:
 	<code>TAG ... CONTENT={{name!LOOP}}</code>
 
-###Input pelo Banco de dados
+### Input pelo Banco de dados
 Só funciona com Scripting Edition.
 
 Pode ler de qualquer banco de dados Windows
 
-##Extrair dados dos sites
-###Extrair elementos únicos
+## Extrair dados dos sites
+### Extrair elementos únicos
 Possui o botão Extract Data
 O comando <code>EXTRACT</code> é controlado por três parâmetros diferentes: a âncora, a posição e o tipo de extração.
 O mais importante é a âncora. Você deve usar <b>*</b> no final da âncora de extração.
